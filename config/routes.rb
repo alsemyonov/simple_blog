@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :articles
+  map.resources :articles, :only => [:index, :show]
+
+  map.root :controller => 'articles'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

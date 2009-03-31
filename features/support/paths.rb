@@ -2,10 +2,10 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
     
-    when /the homepage/
+    when /the homepage/, /главной странице/
       root_path
 
-    when /the list of articles/
+    when /the list of articles/, /странице статей/
       articles_path
     
     # Add more page name => path mappings here

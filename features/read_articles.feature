@@ -1,18 +1,20 @@
-Feature: Read articles
-  In order to read a blog
-  As an reader
-  I want to read articles
+Функционал: Чтение статей
+  Чтобы читать блог
+  Все посетители
+  Хотят листать статьи, искать их, читать и комментировать
 
-  Scenario: List articles
-    Given I have articles titled Pizza, Breadsticks
-    When I go to the list of articles
-    Then I should see "Pizza"
-    And I should see "Breadsticks"
+  Сценарий: Найти список статей
+    Допустим в блоге есть статьи, названные Лёлик, Болек
+    А я на главной странице
+    Если я следую по ссылке "Статьи"
+    То я должен увидеть "Лёлик"
+    И я должен увидеть "Болек"
 
-  Scenario: Read an article
-    Given I have articles titled Pizza, Breadsticks
-    And I am on the list of articles
-    When I follow "Pizza"
-    Then I should see "Pizza"
-    And I should see "The text about Pizza"
+  Сценарий: Чтение статьи
+    Допустим в блоге есть статьи, названные Лёлик, Болек
+    И я на странице статей
+    Если я следую по ссылке "Лёлик"
+    То я должен увидеть "Лёлик"
+    И я должен увидеть "Лёлик - это очень интересно!"
 
+  
