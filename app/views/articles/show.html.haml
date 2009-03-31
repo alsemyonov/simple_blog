@@ -1,3 +1,8 @@
 .b_article
   %h1= h(@article)
   = simple_format(@article.content)
+
+  %hr
+  %h2= t('.comments')
+  %ul= render @article.comments
+  = render :partial => 'comments/form'

@@ -1,4 +1,22 @@
 ru:
+  activerecord:
+    models:
+      article: Статья
+      comment: Комментарий
+    attributes:
+      article:
+        title: Заголовок
+      comment:
+        content: Комментарий
   layouts:
     application:
       articles: Статьи
+  articles:
+    show:
+      comments: Комментарии
+  comments:
+    flash:
+      created: Ваш комментарий добавлен
+    form:
+      to_comment: Прокомментировать
+

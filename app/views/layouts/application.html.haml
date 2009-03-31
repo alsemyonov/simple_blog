@@ -7,7 +7,10 @@
     /[if IE]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
   %body
-    .b_navigation
-      %ul
-        %li= link_to_unless_current t('.articles'), articles_path
-    = yield
+    .l_page
+      .b_navigation
+        %ul
+          %li= link_to_unless_current t('.articles'), articles_path
+      .b_content
+        = render 'layouts/flashes'
+        = yield

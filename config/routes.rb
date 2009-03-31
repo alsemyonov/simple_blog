@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :articles, :only => [:index, :show]
+  map.resources :articles, :only => [:index, :show], :has_many => :comments
 
   map.root :controller => 'articles'
 

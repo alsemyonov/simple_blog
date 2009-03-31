@@ -3,33 +3,33 @@ require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "pat
 # Commonly used webrat steps
 # http://github.com/brynary/webrat
 
-Допустим /^я на (.+)$/ do |page_name|
+Допустим /^я? на (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-Если /^я посещаю (.+)$/ do |page_name|
+Если /^я? посещу (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-Если /^я нажимаю "([^\"]*)"$/ do |button|
+Если /^(я )?нажму "([^\"]*)"$/ do |I, button|
   click_button(button)
 end
 
-Если /^я следую по ссылке "([^\"]*)"$/ do |link|
+Если /^я? последую по ссылке "([^\"]*)"$/ do |link|
   click_link(link)
 end
 
-Если /^я заполняю "([^\"]*)" значением "([^\"]*)"$/ do |field, value|
+Если /^я? заполню "([^\"]*)" значением "([^\"]*)"$/ do |field, value|
   fill_in(field, :with => value) 
 end
 
-Если /^я выбираю "([^\"]*)" в качестве "([^\"]*)"$/ do |value, field|
+Если /^я? выберу "([^\"]*)" в качестве "([^\"]*)"$/ do |value, field|
   select(value, :from => field) 
 end
 
 # Use this step in conjunction with Rail's datetime_select helper. For example:
 # Если I select "December 25, 2008 10:00" as the date and time 
-Если /^я выбираю "([^\"]*)" как дату и время$/ do |time|
+Если /^я? выберу "([^\"]*)" как дату и время$/ do |time|
   select_datetime(time)
 end
 

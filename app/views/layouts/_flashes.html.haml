@@ -1,0 +1,4 @@
+.b_flashes
+  - unless flash.empty?
+    - flash.each do |kind, message|
+      %p{:class => kind}= t(message)

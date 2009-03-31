@@ -1,0 +1,6 @@
+- form_for([@article, Comment.new]) do |f|
+  .b_input
+    = f.label :content, t('activerecord.attributes.comment.content')
+    = f.text_area :content
+  .b_submit
+    = f.submit t('.to_comment')
