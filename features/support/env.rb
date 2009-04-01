@@ -1,5 +1,5 @@
 # Sets up the Rails environment for Cucumber
-ENV["RAILS_ENV"] ||= "test"
+ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
 require 'cucumber/rails/world'
 require 'cucumber/formatters/unicode' 
@@ -18,22 +18,3 @@ end
 require 'cucumber/rails/rspec'
 require 'webrat/core/matchers'
 require File.expand_path(File.dirname(__FILE__) + '/../../spec/factories')
-
-# A fix for using factory_girl with cucumber
-module ActiveRecord
-  class Base
-    def self.reset_subclasses #:nodoc:
-      nonreloadables = []
-      subclasses.each do |klass|
-        unless ActiveSupport::Dependencies.autoloaded? klass
-          nonreloadables << klass
-          next
-        end
-      end
-      @@subclasses = {}
-      nonreloadables.each { |klass| (@@subclasses[klass.superclass] ||= []) << klass }
-    end
-  end
-end
-
-

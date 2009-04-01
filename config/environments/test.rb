@@ -34,4 +34,4 @@ config.gem "cucumber", :lib => false, :version => ">=0.2.3"
 config.gem "thoughtbot-shoulda", :lib => false, :version => ">=1.2.0", :source => "http://gems.github.com"
 config.gem "thoughtbot-factory_girl", :lib => false, :version => ">=1.2.0", :source => "http://gems.github.com"
 
-
+require 'activerecord_reset_sublass_fix'
