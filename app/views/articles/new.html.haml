@@ -1,0 +1,11 @@
+%h1= t('.posting_an_article')
+
+- form_for @article do |f|
+  .b_input
+    = f.label :title
+    = f.text_field :title
+  .b_input
+    = f.label :content
+    = f.text_area :content
+  .b_submit
+    = f.submit t('.to_post')

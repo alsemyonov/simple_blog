@@ -7,6 +7,9 @@ module NavigationHelpers
 
     when /the list of articles/, /странице статей/
       articles_path
+
+    when /странице управления/
+      manage_articles_path
     
     # Add more page name => path mappings here
     

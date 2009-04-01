@@ -3,20 +3,37 @@ ru:
     models:
       article: Статья
       comment: Комментарий
+
     attributes:
       article:
         title: Заголовок
+        content: Содержимое
       comment:
         content: Комментарий
+
   layouts:
     application:
       articles: Статьи
+
   articles:
+    flash:
+      created: Ваша статья добавлена
+    index:
+      articles: Статьи
     show:
       comments: Комментарии
+    manage:
+      manage_articles: Управление статьями
+      add_an_article: Добавить статью
+    new:
+      posting_an_article: Добавление статьи
+      to_post: Опубликовать статью
+
   comments:
     flash:
       created: Ваш комментарий добавлен
     form:
       to_comment: Прокомментировать
+    new:
+      posting_a_comment: Добавление комментария
 

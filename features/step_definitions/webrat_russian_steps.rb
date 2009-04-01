@@ -3,27 +3,27 @@ require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "pat
 # Commonly used webrat steps
 # http://github.com/brynary/webrat
 
-Допустим /^я? на (.+)$/ do |page_name|
+Допустим /я? ?на (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-Если /^я? посещу (.+)$/ do |page_name|
+Если /посещу (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-Если /^(я )?нажму "([^\"]*)"$/ do |I, button|
+Если /нажму "([^\"]*)"$/ do |button|
   click_button(button)
 end
 
-Если /^я? последую по ссылке "([^\"]*)"$/ do |link|
+Если /последую по ссылке "([^\"]*)"$/ do |link|
   click_link(link)
 end
 
-Если /^я? заполню "([^\"]*)" значением "([^\"]*)"$/ do |field, value|
+Если /заполню "([^\"]*)" значением "([^\"]*)"$/ do |field, value|
   fill_in(field, :with => value) 
 end
 
-Если /^я? выберу "([^\"]*)" в качестве "([^\"]*)"$/ do |value, field|
+Если /выберу "([^\"]*)" в качестве "([^\"]*)"$/ do |value, field|
   select(value, :from => field) 
 end
 
@@ -90,11 +90,11 @@ end
 #  attach_file(field, path)
 #end
 
-То /^я должен увидеть "([^\"]*)"$/ do |text|
+То /^(я )?должен увидеть "([^\"]*)"$/ do |me, text|
   response.should contain(text)
 end
 
-То /^я не должен увидеть "([^\"]*)"$/ do |text|
+То /^(я )?не должен увидеть "([^\"]*)"$/ do |me, text|
   response.should_not contain(text)
 end
 

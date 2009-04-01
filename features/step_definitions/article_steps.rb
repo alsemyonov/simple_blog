@@ -2,7 +2,6 @@
 
 # Условия
 Допустим /^в блоге есть статья, названная (.+)/ do |title|
-  #Article.create!(:title => title, :content => "#{title} - это очень интересно!")
   @article = Factory(:article, :title => title)
 end
 
@@ -12,10 +11,13 @@ end
   end
 end
 
+Допустим /^в блоге нет статей$/ do
+  Article.delete_all
+end
+
 Допустим /^у статьи "([^\"]*)" нет комментариев$/ do |title|
   Article.find_by_title(title).comments.delete_all
 end
-
 
 # Проверки
 То /^у статьи "([^\"]*)" должен быть ([0-9]+) комментарий$/ do |title, count|

@@ -1,2 +1,2 @@
-default: features --language ru --format progress -b
-long: features --language ru
+default: features --language ru --format progress
+long: features --language ru -n
