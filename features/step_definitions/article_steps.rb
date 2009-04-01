@@ -1,9 +1,9 @@
 # encoding: utf-8
 
-
 # Условия
 Допустим /^в блоге есть статья, названная (.+)/ do |title|
-  Article.create!(:title => title, :content => "#{title} - это очень интересно!")
+  #Article.create!(:title => title, :content => "#{title} - это очень интересно!")
+  @article = Factory(:article, :title => title)
 end
 
 Допустим /^в блоге есть статьи, названные (.+)/ do |titles|
@@ -19,6 +19,6 @@ end
 
 # Проверки
 То /^у статьи "([^\"]*)" должен быть ([0-9]+) комментарий$/ do |title, count|
-  Article.find_by_title(title).should have(1).comment
+  Article.find_by_title(title).should have(count.to_i).comment
 end
 

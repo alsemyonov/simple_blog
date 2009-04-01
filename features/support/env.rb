@@ -2,9 +2,10 @@
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
 require 'cucumber/rails/world'
-require 'cucumber/formatters/unicode' # Comment out this line if you don't want Cucumber Unicode support
-$KCODE='u' unless Cucumber::RUBY_1_9
-#Cucumber::Rails.use_transactional_fixtures
+require 'cucumber/formatters/unicode' 
+
+
+# Cucumber::Rails.use_transactional_fixtures
 Cucumber::Rails.bypass_rescue # Comment out this line if you want Rails own error handling 
                               # (e.g. rescue_action_in_public / rescue_responses / rescue_from)
 
@@ -16,5 +17,23 @@ end
 
 require 'cucumber/rails/rspec'
 require 'webrat/core/matchers'
+require File.expand_path(File.dirname(__FILE__) + '/../../spec/factories')
+
+# A fix for using factory_girl with cucumber
+module ActiveRecord
+  class Base
+    def self.reset_subclasses #:nodoc:
+      nonreloadables = []
+      subclasses.each do |klass|
+        unless ActiveSupport::Dependencies.autoloaded? klass
+          nonreloadables << klass
+          next
+        end
+      end
+      @@subclasses = {}
+      nonreloadables.each { |klass| (@@subclasses[klass.superclass] ||= []) << klass }
+    end
+  end
+end
 
 
